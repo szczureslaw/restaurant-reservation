@@ -1,11 +1,70 @@
 :root{
   --page-bg: #F5F7FB;
+  --card-bg: #FFFFFF;
   --text-primary: #111827;
   --text-secondary: #6B7280;
   --primary: #2563EB;
+  --muted-border: #E5E7EB;
+  --card-shadow: 0 6px 18px rgba(2,6,23,0.06);
 }
+
 *{box-sizing:border-box}
-body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:var(--page-bg); margin:0; color:var(--text-primary); font-size:14px}
-.card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
-button{font-family:inherit}
-a{color:var(--primary);text-decoration:none}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color:var(--text-primary);background:var(--page-bg);-webkit-font-smoothing:antialiased}
+
+.app-grid{max-width:1200px;margin:32px auto;display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:0 16px;}
+@media (max-width:900px){ .app-grid{grid-template-columns:1fr; } }
+
+.card{
+  background: var(--card-bg);
+  border-radius:12px;
+  padding:20px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(16,24,40,0.03);
+}
+
+/* Headings */
+h3{margin:0 0 12px 0;font-size:18px;font-weight:600;color:var(--text-primary)}
+
+/* Labels and small text */
+.label, .small{font-size:12px;color:var(--text-secondary);display:block;margin-bottom:6px}
+
+/* Inputs */
+.input{
+  padding:10px;
+  border-radius:8px;
+  border:1px solid var(--muted-border);
+  font-size:14px;
+  width:100%;
+  background:#fff;
+  color:var(--text-primary);
+  box-shadow:none;
+}
+
+/* Times / slots row */
+.times{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.slot{
+  min-width:72px;height:36px;border-radius:8px;border:1px solid rgba(17,24,39,0.06);background:#fff;color:var(--text-primary);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0 10px;
+  box-shadow: 0 1px 0 rgba(16,24,40,0.02);
+}
+.slot.active{ background:var(--primary); color:#fff; border-color:var(--primary); }
+
+/* CTA */
+.cta{ display:inline-block;width:100%;height:48px;border-radius:10px;background:var(--primary);color:#fff;border:none;font-weight:600;cursor:pointer;box-shadow:0 6px 18px rgba(37,99,235,0.12); }
+
+/* Reservation list (manager) */
+.list{margin-top:8px}
+.reservation{
+  display:flex;align-items:center;justify-content:space-between;padding:12px;border-radius:8px;border:1px solid #EEF2FF;background:#FFFFFF;margin-bottom:12px;
+}
+.left{font-weight:600;color:var(--text-primary);width:140px}
+.mid{flex:1;color:#374151;padding:0 12px}
+.right{display:flex;gap:8px}
+.confirm{background:#10B981;color:#fff;border:none;padding:6px 10px;border-radius:8px;cursor:pointer}
+.cancel{background:#EF4444;color:#fff;border:none;padding:6px 10px;border-radius:8px;cursor:pointer}
+
+/* small link and export */
+a{color:var(--primary)}
+.export{background:#0f1724;color:#fff;border:none;padding:8px 12px;border-radius:8px;cursor:pointer}
+
+/* misc */
+input[type="date"]{padding:10px;border-radius:8px;border:1px solid var(--muted-border);background:#fff}
