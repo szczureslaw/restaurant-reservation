@@ -1,35 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import BookingForm from './components/Booking/BookingForm';
+import ManagerPanel from './components/Manager/ManagerPanel';
+import initialReservations from './mock/reservations.json';
+import './index.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [reservations, setReservations] = useState(initialReservations);
+
+  function addReservation(r) {
+    setReservations(prev => [r, ...prev]);
+  }
+  function confirmReservation(id) {
+    setReservations(prev => prev.map(p => p.id===id? {...p,status:'confirmed'}:p));
+  }
+  function cancelReservation(id) {
+    setReservations(prev => prev.filter(p => p.id!==id));
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div style={{maxWidth:1200,margin:'32px auto',display:'grid',gridTemplateColumns:'1fr 1fr',gap:32}}>
+      <BookingForm onNewReservation={addReservation} />
+      <ManagerPanel reservations={reservations} onConfirm={confirmReservation} onCancel={cancelReservation} />
+    </div>
+  );
 }
-
-export default App

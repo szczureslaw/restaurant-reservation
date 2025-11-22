@@ -1,0 +1,12 @@
+.panel { display:flex; flex-direction:column; gap:12px; }
+.title { font-size:18px; margin:0; color:#111827; }
+.summary { display:flex; gap:16px; color:#6B7280; font-size:14px; }
+.list { display:flex; flex-direction:column; gap:8px; margin-top:8px; max-height:480px; overflow:auto; }
+.reservation { display:flex; align-items:center; justify-content:space-between; padding:10px; border-radius:8px; border:1px solid #EEF2FF; background:#FBFCFF; }
+.left { font-weight:600; color:#111827; width:120px; }
+.mid { flex:1; color:#374151; padding:0 12px; }
+.right { display:flex; gap:8px; }
+.confirm { background:#10B981; color:white; border:none; padding:6px 10px; border-radius:8px; cursor:pointer; }
+.cancel { background:#EF4444; color:white; border:none; padding:6px 10px; border-radius:8px; cursor:pointer; }
+.footer { display:flex; justify-content:space-between; align-items:center; margin-top:8px; }
+.export { background:#111827; color:white; border:none; padding:6px 10px; border-radius:8px; cursor:pointer; }
