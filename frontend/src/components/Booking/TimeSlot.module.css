@@ -1,0 +1,2 @@
+.slot{ min-width:72px;height:36px;border-radius:8px;border:1px solid rgba(17,24,39,0.08);background:transparent;color:inherit;cursor:pointer;margin:4px; }
+.active{ background:#2563EB;color:#fff;border-color:#2563EB; }

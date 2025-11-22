@@ -1,5 +1,6 @@
-import styles from './ManagerPanel.module.css';
 import Card from '../Common/Card';
+import ReservationRow from './ReservationRow';
+import styles from './ManagerPanel.module.css';
 
 export default function ManagerPanel({ reservations, onConfirm, onCancel }) {
   return (
@@ -12,14 +13,7 @@ export default function ManagerPanel({ reservations, onConfirm, onCancel }) {
 
       <div className={styles.list}>
         {reservations.map(r => (
-          <div key={r.id} className={styles.reservation}>
-            <div className={styles.left}>{r.time} • {r.guests}os</div>
-            <div className={styles.mid}>{r.name} • {r.phone}</div>
-            <div className={styles.right}>
-              <button className={styles.confirm} onClick={()=>onConfirm(r.id)}>Potwierdź</button>
-              <button className={styles.cancel} onClick={()=>onCancel(r.id)}>Anuluj</button>
-            </div>
-          </div>
+          <ReservationRow key={r.id} r={r} onConfirm={onConfirm} onCancel={onCancel} />
         ))}
       </div>
 
