@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-secondary text-dark;
+  scroll-behavior: smooth;
+}
+
+/* Subtelna animacja przejścia */
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cienie i hover dla kart */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-1;
+}
+
+/* Przyciski – nowy styl */
+.btn-primary {
+  @apply bg-primary text-light font-medium px-6 py-3 rounded-lg shadow-md hover:bg-accent hover:shadow-lg transition-all duration-300;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-primary border-2 border-primary font-medium px-6 py-3 rounded-lg hover:bg-primary hover:text-light transition-all duration-300;
+}
